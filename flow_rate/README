@@ -1,0 +1,39 @@
+README
+----------
+
+controller code: 			l2_multi_controller.py
+Generate normal traffic:	normal_traffic.py
+Traffic for Single Victim:	single_victim.py
+Traffic for multi Victim:	multi_victim.py
+
+
+
+
+Instructions:
+----------------
+1> Run Pox Controller
+2> Use Mininet
+3> Install following packages insider the container:
+	
+	apt-get update
+	apt-get install git
+	env GIT_SSL_NO_VERIFY=true git clone https://github.com/noxrepo/pox
+	apt-get install python-pip
+	pip install scapy
+	pip install colorama
+	
+4> Run Controller Code:
+------------------------
+./pox.py log.level --DEBUG openflow.discovery forwarding.l2_multi_controller
+
+
+5>Execute Mininet:
+----------------------
+mn --topo tree,depth=2,fanout=8 --controller remote
+
+
+
+6>Run normal_traffic.py,  single_victim.py, multi_victim.py accordingly
+to generate traffic over the network
+
+	
